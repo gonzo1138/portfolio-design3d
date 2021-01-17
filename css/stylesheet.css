@@ -8,8 +8,10 @@
 }
 
 @font-face {
-	font-family:"Roboto-mono";
+	font-family: "Roboto-mono";
 	src: url("../src/RobotoMono-VariableFont_wght.ttf");
+}
+@font-face {
 	font-family:"Roboto-regular";
 	src: url("../src/Roboto-Regular.ttf");
  }
@@ -18,9 +20,16 @@ html, body{
 	width:100%;
 	height:100%;
 	background-color:#000000;
-	font-family: Roboto-mono, monospace;
+	font-family: Roboto-regular, sans-serif;
 	color: #009000;
 	font-size: medium;
 }
 
-
+x3d{
+	width:100vW;
+	height:100vH;
+	right: 0;
+	top:0;
+	z-index:5;
+	overflow: hidden;
+}

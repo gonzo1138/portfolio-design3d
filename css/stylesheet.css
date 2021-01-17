@@ -1,0 +1,26 @@
+*{
+  margin:0;
+  padding:0;
+  margin-block-start:0;
+  margin-block-end:0;
+  margin-inline-start:0;
+  margin-inline-end:0;
+}
+
+@font-face {
+	font-family:"Roboto-mono";
+	src: url("../src/RobotoMono-VariableFont_wght.ttf");
+	font-family:"Roboto-regular";
+	src: url("../src/Roboto-Regular.ttf");
+ }
+
+html, body{
+	width:100%;
+	height:100%;
+	background-color:#000000;
+	font-family: Roboto-mono, monospace;
+	color: #009000;
+	font-size: medium;
+}
+
+

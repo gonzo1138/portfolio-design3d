@@ -24,7 +24,7 @@ html, body{
 	color: #fff;
 	font-size: 15px;
 	scroll-behavior: smooth;
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 
 x3d{
@@ -39,7 +39,7 @@ section {
 	width: 100%;
 	height: 100vH;
 }
-
+/*
 #nav{
 	height: 50px;
 	width: 300px;
@@ -72,3 +72,4 @@ section {
 #sixth{
 	background-color: #ff00ff;
 }
+*/

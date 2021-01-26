@@ -33,7 +33,7 @@
 					<transform DEF='front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' id="_first">
 						<transform DEF='front_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube'>
-								<shape>
+								<shape onclick="alert("You clicked me");">
 									<appearance>
 										<material DEF='MA_Material' ambientIntensity='0' shininess='0.5' specularColor='1 1 1'></material>
 										<ImageTexture url="pix/thomas.jpg"></ImageTexture>
@@ -72,7 +72,7 @@
 								<shape id="_third">
 									<appearance>
 										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/vcardTW.png"></ImageTexture>
+										<ImageTexture url="pix/vcardTW_t.png"></ImageTexture>
 									</appearance>
 									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='1 0 2 3 -1'>
 										<coordinate DEF='coords_ME_Cube_002' point='1 1 -1 -1 1 -1 1 -1 -1 -1 -1 -1'></coordinate>

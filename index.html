@@ -30,13 +30,13 @@
 						<viewpoint DEF='CA_Camera' position='0 0 0' fieldOfView='0.303'></viewpoint>
 					</transform>
 
-					<transform DEF='front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' id="_first">
 						<transform DEF='front_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube'>
 								<shape>
 									<appearance>
 										<material DEF='MA_Material' ambientIntensity='0' shininess='0.5' specularColor='1 1 1'></material>
-										<ImageTexture url="pix/1.jpg"></ImageTexture>
+										<ImageTexture url="pix/thomas.jpg"></ImageTexture>
 										<!--<ImageTexture url="pix/projekte.png"></ImageTexture>
 										<textureTransform DEF='RotateRight' rotation='-1.57'></textureTransform>-->
 									</appearance>
@@ -52,10 +52,10 @@
 					<transform DEF='right_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
 						<transform DEF='right_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube_001'>
-								<shape>
+								<shape id="_second">
 									<appearance>
 										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/2.jpg"></ImageTexture>
+										<ImageTexture url="pix/projekte.png"></ImageTexture>
 									</appearance>
 									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='2 0 1 3 -1'>
 										<coordinate DEF='coords_ME_Cube_001' point='1 1 1 1 -1 1 1 1 -1 1 -1 -1'></coordinate>
@@ -69,7 +69,7 @@
 					<transform DEF='rear_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
 						<transform DEF='rear_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube_002'>
-								<shape>
+								<shape id="_third">
 									<appearance>
 										<material USE='MA_Material'></material>
 										<ImageTexture url="pix/3.jpg"></ImageTexture>
@@ -86,7 +86,7 @@
 					<transform DEF='bottom_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
 						<transform DEF='bottom_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube_003'>
-								<shape>
+								<shape id="_fourth">
 									<appearance>
 										<material USE='MA_Material'></material>
 										<ImageTexture url="pix/4.jpg"></ImageTexture>
@@ -103,7 +103,7 @@
 					<transform DEF='left_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
 						<transform DEF='left_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube_004'>
-								<shape>
+								<shape id="_fifth">
 									<appearance>
 										<material USE='MA_Material'></material>
 										<ImageTexture url="pix/5.jpg"></ImageTexture>
@@ -120,7 +120,7 @@
 					<transform DEF='top_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
 						<transform DEF='top_ifs_TRANSFORM'>
 							<group DEF='group_ME_Cube_005'>
-								<shape>
+								<shape id="_sixth">
 									<appearance>
 										<material USE='MA_Material'></material>
 										<ImageTexture url="pix/6.jpg"></ImageTexture>

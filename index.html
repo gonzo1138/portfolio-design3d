@@ -4,8 +4,9 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<link rel="stylesheet" href="css/x3dom.css">
-		<script type="text/javascript"  src="./js/script.js"></script>
 		<script type="text/javascript" src="./js/x3dom.js"> </script>
+		<script type="text/javascript" src="./js/script.js"></script>
+
 		<title></title>
 	</head>
 
@@ -15,131 +16,155 @@
 			<nav>
 				<a href="#first">1</a><a href="#second"> 2</a><a href="#third"> 3</a><a href="#fourth"> 4</a><a href="#fifth"> 5</a><a href="#sixth"> 6</a>
 			</nav>
+			<button id="knob">Klick me!</button>
 -->
-		<button id="knob">Klick me!</button>
 		</header>
 
-
-			<x3d id='cube' showStat='false' showLog='false'>
-				<scene>
-					<navigationInfo avatarSize='0.25 1.75 0.75' headlight='true' type='"EXAMINE" "ANY"'></navigationInfo>
+		<x3d id='cube' showStat='false' showLog='false'>
+			<scene>
+				<navigationInfo avatarSize='0.25 1.75 0.75' headlight='true' type='"EXAMINE" "ANY"'></navigationInfo>
 <!--
-					<background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
-					<transform DEF='Light_TRANSFORM' rotation='-0.498084 -0.762016 -0.413815 1.51388' translation='0.05474 7.02342 -5.43927'>
-						<pointLight DEF='LA_Light' radius='30'></pointLight>
-					</transform>
+				<background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
+				<transform DEF='Light_TRANSFORM' rotation='-0.498084 -0.762016 -0.413815 1.51388' translation='0.05474 7.02342 -5.43927'>
+					<pointLight DEF='LA_Light' radius='30'></pointLight>
+				</transform>
 -->
-					<!--<transform DEF='Camera_TRANSFORM' rotation='0 1 0 3.14159' scale='2 2 2' translation='0 0 -23'>-->
-					<transform DEF='Camera_TRANSFORM' rotation='0 1 1 3.14159' scale='2 2 2' translation='0 23 0'>
-						<viewpoint DEF='CA_Camera' position='0 0 0' fieldOfView='0.303'></viewpoint>
-					</transform>
+				<!--<transform DEF='Camera_TRANSFORM' rotation='0 1 0 3.14159' scale='2 2 2' translation='0 0 -23'>-->
+<!--	single cam:		-->
+				<transform DEF='Camera_TRANSFORM' rotation='0 1 1 3.14159' scale='2 2 2' translation='0 23 0'>
+					<viewpoint DEF='CA_Camera' position='0 0 0' fieldOfView='0.303'></viewpoint>
+				</transform>
+<!--		multi cams:
 
-					<transform DEF='front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' id="_first">
-						<transform DEF='front_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube'>
-								<shape id="front">
-									<appearance>
-										<material DEF='MA_Material' ambientIntensity='0' shininess='0.5' specularColor='1 1 1'></material>
-										<ImageTexture url="pix/thomas.jpg"></ImageTexture>
-										<!--<ImageTexture url="pix/projekte.png"></ImageTexture>
-										<textureTransform DEF='RotateRight' rotation='-1.57'></textureTransform>-->
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='0 3 1 2 -1'>
-										<coordinate DEF='coords_ME_Cube' point='1 1 1 -1 -1 1 1 -1 1 -1 1 1'></coordinate>
-										<!--<textureCoordinate point='0.625 0.5 0.875 0.5 0.875 0.75 0.625 0.75'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
-					</transform>
+				<transform DEF='Cam_front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' scale='0.93 2 2' translation='0 23 0'>
+					<viewpoint DEF='CA_Cam_front' position='0 0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				<transform DEF='Cam_rear_TRANSFORM' rotation='1 -0 0 1.5708' scale='0.93 2 2' translation='0 -23 0'>
+					<viewpoint DEF='CA_Cam_rear' position='-0 -0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				<transform DEF='Cam_left_TRANSFORM' rotation='0 1 0 1.5708' scale='0.93 2 2' translation='23 0 0'>
+					<viewpoint DEF='CA_Cam_left' position='0 0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				<transform DEF='Cam_right_TRANSFORM' rotation='-0 -1 0 1.5708' scale='0.93 2 2' translation='-23 0 0'>
+					<viewpoint DEF='CA_Cam_right' position='0 -0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				<transform DEF='Cam_bottom_TRANSFORM' rotation='0 1 -0 3.14159' scale='0.93 2 2' translation='0 0 -23'>
+					<viewpoint DEF='CA_Cam_bottom' position='0 -0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				<transform DEF='Cam_top_TRANSFORM' scale='0.93 2 2' translation='0 0 23'>
+					<viewpoint DEF='CA_Cam_top' position='0 0 0' fieldOfView='0.29'></viewpoint>
+				</transform>
+				-->
 
-					<transform DEF='right_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
-						<transform DEF='right_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube_001'>
-								<shape id="_second">
-									<appearance>
-										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/tex_kontakt.png"></ImageTexture>
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='2 0 1 3 -1'>
-										<coordinate DEF='coords_ME_Cube_001' point='1 1 1 1 -1 1 1 1 -1 1 -1 -1'></coordinate>
-										<!--<textureCoordinate point='0.375 0.5 0.625 0.5 0.625 0.75 0.375 0.75'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
+				<transform DEF='front_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='front_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube'>
+							<shape onclick="myname(this)" id="_first">
+<!--	js: onclick only listens to Document- or Window-functions...
+							<shape onclick="Document.DOCUMENT_NODE." id="front">
+-->
+								<appearance>
+									<material DEF='MA_Material' ambientIntensity='0' shininess='0.5' specularColor='1 1 1'></material>
+									<ImageTexture url="pix/thomas.jpg"></ImageTexture>
+									<!--<ImageTexture url="pix/projekte.png"></ImageTexture>
+									<textureTransform DEF='RotateRight' rotation='-1.57'></textureTransform>-->
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='0 3 1 2 -1'>
+									<coordinate DEF='coords_ME_Cube' point='1 1 1 -1 -1 1 1 -1 1 -1 1 1'></coordinate>
+									<!--<textureCoordinate point='0.625 0.5 0.875 0.5 0.875 0.75 0.625 0.75'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
 					</transform>
+				</transform>
 
-					<transform DEF='rear_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
-						<transform DEF='rear_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube_002'>
-								<shape id="_third">
-									<appearance>
-										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/vcardTW2_t.png"></ImageTexture>
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='1 0 2 3 -1'>
-										<coordinate DEF='coords_ME_Cube_002' point='1 1 -1 -1 1 -1 1 -1 -1 -1 -1 -1'></coordinate>
-										<!--<textureCoordinate point='0.125 0.5 0.375 0.5 0.375 0.75 0.125 0.75'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
+				<transform DEF='right_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='right_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube_001'>
+							<shape onclick="myname(this)" id="_second">
+								<appearance>
+									<material USE='MA_Material'></material>
+									<ImageTexture url="pix/tex_kontakt.png"></ImageTexture>
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='2 0 1 3 -1'>
+									<coordinate DEF='coords_ME_Cube_001' point='1 1 1 1 -1 1 1 1 -1 1 -1 -1'></coordinate>
+									<!--<textureCoordinate point='0.375 0.5 0.625 0.5 0.625 0.75 0.375 0.75'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
 					</transform>
+				</transform>
 
-					<transform DEF='bottom_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
-						<transform DEF='bottom_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube_003'>
-								<shape id="_fourth">
-									<appearance>
-										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/tex_projekte.png"></ImageTexture>
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='2 3 1 0 -1'>
-										<coordinate DEF='coords_ME_Cube_003' point='-1 -1 -1 -1 -1 1 1 -1 -1 1 -1 1'></coordinate>
-										<!--<textureCoordinate point='0.375 0.75 0.625 0.75 0.625 1 0.375 1'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
+				<transform DEF='rear_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='rear_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube_002'>
+							<shape onclick="myname(this)" id="_third">
+								<appearance>
+									<material USE='MA_Material'></material>
+									<ImageTexture url="pix/vcardTW2_t.png"></ImageTexture>
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='1 0 2 3 -1'>
+									<coordinate DEF='coords_ME_Cube_002' point='1 1 -1 -1 1 -1 1 -1 -1 -1 -1 -1'></coordinate>
+									<!--<textureCoordinate point='0.125 0.5 0.375 0.5 0.375 0.75 0.125 0.75'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
 					</transform>
+				</transform>
 
-					<transform DEF='left_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
-						<transform DEF='left_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube_004'>
-								<shape id="_fifth">
-									<appearance>
-										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/tex_impressum-.png"></ImageTexture>
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='0 1 3 2 -1'>
-										<coordinate DEF='coords_ME_Cube_004' point='-1 -1 -1 -1 -1 1 -1 1 -1 -1 1 1'></coordinate>
-										<!--<textureCoordinate point='0.375 0 0.625 0 0.625 0.25 0.375 0.25'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
+				<transform DEF='bottom_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='bottom_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube_003'>
+							<shape onclick="myname(this)" id="_fourth">
+								<appearance>
+									<material USE='MA_Material'></material>
+									<ImageTexture url="pix/tex_projekte.png"></ImageTexture>
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='2 3 1 0 -1'>
+									<coordinate DEF='coords_ME_Cube_003' point='-1 -1 -1 -1 -1 1 1 -1 -1 1 -1 1'></coordinate>
+									<!--<textureCoordinate point='0.375 0.75 0.625 0.75 0.625 1 0.375 1'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
 					</transform>
+				</transform>
 
-					<transform DEF='top_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
-						<transform DEF='top_ifs_TRANSFORM'>
-							<group DEF='group_ME_Cube_005'>
-								<shape id="_sixth">
-									<appearance>
-										<material USE='MA_Material'></material>
-										<ImageTexture url="pix/tex_hobbies-.png"></ImageTexture>
-									</appearance>
-									<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='3 1 0 2 -1'>
-										<coordinate DEF='coords_ME_Cube_005' point='1 1 1 -1 1 1 1 1 -1 -1 1 -1'></coordinate>
-										<!--<textureCoordinate point='0.375 0.25 0.625 0.25 0.625 0.5 0.375 0.5'></textureCoordinate>-->
-									</indexedFaceSet>
-								</shape>
-							</group>
-						</transform>
+				<transform DEF='left_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='left_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube_004'>
+							<shape onclick="myname(this)" id="_fifth">
+								<appearance>
+									<material USE='MA_Material'></material>
+									<ImageTexture url="pix/tex_impressum-.png"></ImageTexture>
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='0 1 3 2 -1'>
+									<coordinate DEF='coords_ME_Cube_004' point='-1 -1 -1 -1 -1 1 -1 1 -1 -1 1 1'></coordinate>
+									<!--<textureCoordinate point='0.375 0 0.625 0 0.625 0.25 0.375 0.25'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
 					</transform>
+				</transform>
 
-				</scene>
-			</x3d>
+				<transform DEF='top_TRANSFORM' rotation='0 0.707107 0.707107 3.14159'>
+					<transform DEF='top_ifs_TRANSFORM'>
+						<group DEF='group_ME_Cube_005'>
+							<shape onclick="myname(this)" id="_sixth">
+								<appearance>
+									<material USE='MA_Material'></material>
+									<ImageTexture url="pix/tex_hobbies-.png"></ImageTexture>
+								</appearance>
+								<indexedFaceSet solid='false' texCoordIndex='0 1 2 3 -1' coordIndex='3 1 0 2 -1'>
+									<coordinate DEF='coords_ME_Cube_005' point='1 1 1 -1 1 1 1 1 -1 -1 1 -1'></coordinate>
+									<!--<textureCoordinate point='0.375 0.25 0.625 0.25 0.625 0.5 0.375 0.5'></textureCoordinate>-->
+								</indexedFaceSet>
+							</shape>
+						</group>
+					</transform>
+				</transform>
+
+			</scene>
+		</x3d>
 <!--
 		<section id="first">
 			<a href="#top">/\</a>

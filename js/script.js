@@ -8,66 +8,107 @@ x3dom.runtime.ready = function() {
 //    alert("About to render something the first time");
 };
  */
-function patsch(e){
-    console.log(e.id);
-    console.log(e.clientX);
-    console.log(e.clientY);
-}
-/*
-function down(e){
-    console.log(e);
-}
 
-function up(e){
-    console.log(e);
+var klick = [];
+var klickseite = "";
+var content = document.getElementById('content');
+var contentframe = document.getElementById('contentframe');
+
+/*
+function toggelcontent(){
+    contentframe.style.display='none';
+    x.style.display='none';
+
 }
 */
+function myname(object){
+    //console.log(object.id + " angeklickt");
+    klickseite = object.id;
+}
 
-var klick=[];
+function close(e){
+    hide(contentframe);
+    console.log(e);
+    hide(e);
+}
 
-function myname(name){
-    console.log("front clicked");
-    console.log(name.id);
+function hide(element){
+    element.style.display = 'none';
+}
+
+function setCam(name){
+    document.getElementById(name + "_cam").setAttribute('set_bind','true');
+    console.log("Camera " + name + " set.")
+}
+
+function display(name){
+    let contentname ="";
+    if(name!==""){
+        switch (name){
+            case "front":
+                contentname = "";   // pic
+                break;
+            case "right":
+                contentname = "kontakt";
+                break;
+            case "rear":
+                contentname = "";   // qr
+                break;
+            case "bottom":
+                contentname = "projekte";
+                break;
+            case "left":
+                contentname = "impressum";
+                break;
+            case "top":
+                contentname = "hobbies";
+                break;
+            default:
+        }
+
+        console.log("i'm here... " + contentname);
+        if(contentname!==""){
+            console.log(contentname + " gets displayed...");
+            content.innerHTML = "";
+            let newContent = document.getElementById(contentname).cloneNode(true);
+            newContent.style.display="block";
+            newContent.className="displayed";
+            newContent.ID=contentname + "-displayed";
+            let newElement = document.createElement("div");
+            newElement.append(newContent);
+            document.getElementById("content").appendChild(newElement);
+            contentframe.style.display = "flex";
+            content.style.display = "flex";
+        }
+    }
 }
 
 document.onload = function() {
-    // Handle mouseover event on a shape
-    var cube = document.getElementById('cube');
 
+    var cube = document.getElementById('cube');
     cube.addEventListener('mousedown', function(event) {
-        console.log("mouse down:");
-        console.log(event.clientX);
-        console.log(event.clientY);
         klick[0] = event.clientX;
         klick[1] = event.clientY;
     }, false);
 
     cube.addEventListener('mouseup', function(event) {
-        console.log("mouse up:");
-        console.log(event.clientX);
-        console.log(event.clientY);
         klick[2] = event.clientX;
         klick[3] = event.clientY;
-        console.log(klick);
-        if(klick[0]==klick[2] && klick[1]==klick[3]){
-            console.log("klicked!");
-        }
 
-        //klickcompare();
+        if(klick[0]===klick[2] && klick[1]===klick[3] && klickseite!==""){
+            console.log("Now that's a klick on " + klickseite + "!");
+            setCam(klickseite);
+            display(klickseite);
+            klickseite = "";
+        }
     }, false);
+
+    var closebutton = document.getElementById('close');
+    closebutton.addEventListener('click', close);
 };
-/*
-function klickcompare(){
-    if(klick[0]===klick[2] && klick[1]===klick[3]){
-        console.log("klicked!");
-    }
-}
-*/
+
 document.addEventListener('DOMContentLoaded', function() {
 
-    let data = document.getElementsByClassName('data');
-    //data.addEventListener("click", msg);
-    if(data[0].id === "nix"){
-        console.log("nix is hier");
-    }
+
+
 });

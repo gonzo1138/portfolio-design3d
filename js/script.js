@@ -11,76 +11,15 @@ x3dom.runtime.ready = function() {
 
 var klick = [];
 var klickseite = "";
-var content = document.getElementById('content');
-var contentframe = document.getElementById('contentframe');
 
-/*
-function toggelcontent(){
-    contentframe.style.display='none';
-    x.style.display='none';
-
-}
-*/
 function myname(object){
     //console.log(object.id + " angeklickt");
     klickseite = object.id;
 }
 
-function close(e){
-    hide(contentframe);
-    console.log(e);
-    hide(e);
-}
-
-function hide(element){
-    element.style.display = 'none';
-}
-
 function setCam(name){
     document.getElementById(name + "_cam").setAttribute('set_bind','true');
     console.log("Camera " + name + " set.")
-}
-
-function display(name){
-    let contentname ="";
-    if(name!==""){
-        switch (name){
-            case "front":
-                contentname = "";   // pic
-                break;
-            case "right":
-                contentname = "kontakt";
-                break;
-            case "rear":
-                contentname = "";   // qr
-                break;
-            case "bottom":
-                contentname = "projekte";
-                break;
-            case "left":
-                contentname = "impressum";
-                break;
-            case "top":
-                contentname = "hobbies";
-                break;
-            default:
-        }
-
-        console.log("i'm here... " + contentname);
-        if(contentname!==""){
-            console.log(contentname + " gets displayed...");
-            content.innerHTML = "";
-            let newContent = document.getElementById(contentname).cloneNode(true);
-            newContent.style.display="block";
-            newContent.className="displayed";
-            newContent.ID=contentname + "-displayed";
-            let newElement = document.createElement("div");
-            newElement.append(newContent);
-            document.getElementById("content").appendChild(newElement);
-            contentframe.style.display = "flex";
-            content.style.display = "flex";
-        }
-    }
 }
 
 document.onload = function() {
@@ -105,10 +44,78 @@ document.onload = function() {
 
     var closebutton = document.getElementById('close');
     closebutton.addEventListener('click', close);
+
+    var contentwrapper = document.getElementById('contentwrapper');
+    var contentdiv;
+
+    function display(name){
+        let contentname = "";
+        if(name!==""){
+            switch (name){
+                case "front":
+                    contentname = "";   // pic
+                    break;
+                case "right":
+                    contentname = "kontakt";
+                    break;
+                case "rear":
+                    contentname = "";   // qr
+                    break;
+                case "bottom":
+                    contentname = "projekte";
+                    break;
+                case "left":
+                    contentname = "impressum";
+                    break;
+                case "top":
+                    contentname = "hobbies";
+                    break;
+                default:
+            }
+
+            if(contentname!==""){
+                console.log("Displaying " + contentname);
+                contentdiv = document.getElementById(contentname);
+
+                contentwrapper.classList.remove('invisible');
+                contentwrapper.classList.add('visiblegrid');
+
+                contentdiv.classList.remove('invisible');
+                contentdiv.classList.add('visibleflex');
+
+                closebutton.classList.remove('invisible');
+                closebutton.classList.add('visibleflex');
+            }
+        }
+    }
+
+    function close(){
+        contentwrapper.classList.remove('visiblegrid');
+        contentwrapper.classList.add('invisible');
+
+        contentdiv.classList.remove('visibleflex');
+        contentdiv.classList.add('invisible');
+
+        closebutton.classList.remove('visibleflex');
+        closebutton.classList.add('invisible');
+
+        console.log("all closed");
+    }
+/*
+    var divvar=document.getElementById('hobbies');
+    console.log(divvar);
+
+    function showdiv(id){
+        //var divvar=document.getElementById(id);
+        console.log(divvar);
+        divvar.className="vis";
+        console.log(divvar);
+    }
+*/
 };
 
+/*
 document.addEventListener('DOMContentLoaded', function() {
 
-
-
 });
+*/

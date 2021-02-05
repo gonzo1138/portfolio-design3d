@@ -53,7 +53,7 @@ document.onload = function() {
         if(name!==""){
             switch (name){
                 case "front":
-                    contentname = "";   // pic
+                    contentname = "uebermich";   // pic
                     break;
                 case "right":
                     contentname = "kontakt";
@@ -101,17 +101,13 @@ document.onload = function() {
 
         console.log("all closed");
     }
-/*
-    var divvar=document.getElementById('hobbies');
-    console.log(divvar);
 
-    function showdiv(id){
-        //var divvar=document.getElementById(id);
-        console.log(divvar);
-        divvar.className="vis";
-        console.log(divvar);
-    }
-*/
+    document.addEventListener('keydown', function(event){
+        if (event.keyCode === 27){
+            close();
+        }
+    });
+
 };
 
 /*

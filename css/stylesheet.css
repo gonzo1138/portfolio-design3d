@@ -59,7 +59,7 @@ html, body{
 	background-color: #2d4f81;
 	font-family: Roboto-regular, sans-serif;
 	color: #fff;
-	font-size: 15px;
+	font-size: 20px;
 	scroll-behavior: smooth;
 	overflow: hidden;
 
@@ -164,8 +164,8 @@ x3d{
 	top: 0;
 	flex-flow: row;
 	scrolling: auto;
-/*
 	animation: fadeandzoomin 1s;
+/*
 	animation-delay: 1s;
 */
 }

@@ -38,20 +38,6 @@
 	}
 }
 
-@keyframes fadeout {
-	from{
-		opacity: 1;
-		height: 100%;
-		width: 100%;
-	}
-	to{
-		opacity: 0;
-		height: 50%;
-		width: 50%;
-		display: none;
-	}
-}
-
 html, body{
 	width: 100%;
 	height: 100%;
@@ -99,11 +85,41 @@ main{
 	z-index: 1;
 
 	display: grid;
-	grid-auto-flow: row;
+	grid-auto-flow: column;
 	grid-template-rows: 100px 1fr 100px;
 	/* 3 Reihen:		1  2content3  4*/
 	grid-template-columns: 100px 1fr 100px;
 	/* 3 Spalten:		   1  2content3  4	*/
+}
+
+.visibleflex{
+	display: flex;
+	animation: fadeandzoomin 1s;
+}
+
+.visiblegrid{
+	display: grid;
+}
+
+.invisible{
+	display: none;
+}
+
+.center{
+	justify-content: center;
+	align-items: center;
+}
+
+.content{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	top: 0;
+
+	flex-flow: column;
+/*	border-width: 10px;
+	border-color: #00206B;*/
 }
 
 #contentwrapper{
@@ -114,13 +130,15 @@ main{
 	height: 100%;
 	width: 100%;
 	padding: 20px;
-
-	background-image: linear-gradient(to bottom, #6585CFff 10%, #0536A7dd 90%);
-	border-width: 1px;
-	border-color: #00206B;
-
+	max-width: 1000px;
 	bottom: 0;
 	z-index: 1;
+
+	flex-flow: row;
+	overflow-y: auto;
+	background-image: linear-gradient(to bottom, #6585CFff 10%, #0536A7dd 90%);
+
+	animation: fadeandzoomin 1s;
 }
 
 x3d{
@@ -136,52 +154,10 @@ x3d{
 	z-index: 0;
 }
 
-.invisible{
-	display: none;
-	/*animation: fadeout 1s;*/
-}
-
-.visibleflex{
-	display: flex;
-	animation: fadeandzoomin 1s;
-	/*animation-delay: 1s;*/
-}
-
-.visiblegrid{
-	display: grid;
-}
-
-.center{
-	justify-content: center;
-	align-items: center;
-}
-
-.content{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	z-index: 2;
-	top: 0;
-	flex-flow: row;
-	scrolling: auto;
-	animation: fadeandzoomin 1s;
-/*
-	animation-delay: 1s;
-*/
-}
-
-.orders .noorder{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	bottom: 0;
-
-}
-
 @media print {
 	body{
-		width: 100%;
-		height: 100%;
+		width: 100vW;
+		height: 100vH;
 		background-color: #fff;
 		color: #000;
 		font-size: 15px;
@@ -213,14 +189,17 @@ x3d{
 		background: none;
 	}
 
-	#pic{
+	#picframe{
 		display: grid;
 		grid-row-start: 1;
 		grid-row-end: 2;
 		grid-column-start: 1;
 		grid-column-end: 2;
-		height: 100px;
-		width: 100px;
+	}
+
+	#pic{
+		height: fit-content;
+		width: auto;
 	}
 
 	#contentwrapper{
